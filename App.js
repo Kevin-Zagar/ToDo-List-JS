@@ -32,7 +32,7 @@ function addTask(e) {
     const link = document.createElement('a');
     // Add class
     link.className = 'delete-item secondary-content';
-    // Add icon html 
+    // Add icon html
     link.innerHTML = '<i class="fa fa-remove"></i>';
     // Append link to ul
     li.appendChild(link);
@@ -42,8 +42,21 @@ function addTask(e) {
 
     // Clear Input
     taskInput.value = '';
-    
+
     console.log(li);
 
     e.preventDefault();
+}
+
+// Remove Task
+function removeTask(e) {
+    if (e.target.parentElement.classList.contains('delete-item')) {
+        if (confirm('Are you Sure?')) {
+            e
+                .target
+                .parentElement
+                .parentElement
+                .remove();
+        }
+    }
 }
